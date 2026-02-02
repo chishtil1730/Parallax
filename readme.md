@@ -1,4 +1,4 @@
-# Z-Lens
+# Planarity - Css Debugger
 
 ## Cross-Framework Z-Index Intelligence & Visualization
 
