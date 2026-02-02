@@ -52,6 +52,47 @@ Interactions:
 
 This visualization explains *why* elements overlap the way they do, not just *that* they overlap.
 
+## Enhanced Features
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Design Token Recognition** | Detects and works with existing CSS variables, design tokens, and constants | Enhanced v1 |
+| **CVA/Variant Integration** | Recognizes and can edit class-variance-authority and similar styling systems | Enhanced v1 |
+| **Smart Table Grouping** | Group z-index values by stacking context, file, framework type, or custom groups | Enhanced v1 |
+| **Visual Before/After Diff** | Shows not just code changes but visual preview of how the page will look | Enhanced v1 |
+| **Named Layer Contracts** | Define and enforce semantic layers (e.g., `modal > overlay > tooltip`) | Future/v2 |
+
+## AI-Powered Features
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Automatic Issue Detection** | AI identifies common z-index anti-patterns (multiple 9999s, broken stacking contexts) | AI Feature |
+| **Intelligent Fix Suggestions** | Context-aware recommendations for resolving stacking issues | AI Feature |
+| **Layering System Generator** | AI suggests and generates design token/constant systems based on usage patterns | AI Feature |
+| **Code Migration Assistant** | Generates patches to refactor scattered z-indices into organized systems | AI Feature |
+| **Interactive AI Chat** | Ask follow-up questions about specific stacking issues with full context | AI Feature |
+| **One-Click Apply Suggestions** | Apply AI-recommended fixes through the staging workflow | AI Feature |
+
+## Technical Capabilities
+
+| Capability | Description | Status |
+|------------|-------------|--------|
+| **Framework-Agnostic Core** | Browser stacking behavior is source of truth, frameworks are input formats | Core v1 |
+| **Pluggable Resolver System** | Extensible architecture for adding new framework/styling system support | Core v1 |
+| **Privacy-First AI Integration** | Only sends structural CSS data to AI, not file contents or user data | AI Feature |
+| **Graceful Failure** | Tool remains functional even when source mapping fails | Core v1 |
+| **Browser Extension Architecture** | Works without requiring code integration or build step changes | Core v1 |
+
+## Future Extensions
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Z-Index Budgets** | Set and enforce maximum z-index values per layer/context | Future |
+| **Team Conventions** | Define and share z-index conventions across team members | Future |
+| **CI/CD Integration** | Automated warnings for stacking violations in pull requests | Future |
+| **Shadow DOM Support** | Handle Web Components and Shadow DOM stacking contexts | Future |
+| **Dynamic Z-Index Tracking** | Track z-indices set via JS state, animations, and scroll positions | Future |
+| **Media Query Awareness** | Handle different z-index values across breakpoints | Future |
 
 ## 2. Core Idea
 
