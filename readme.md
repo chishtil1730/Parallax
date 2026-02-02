@@ -36,6 +36,23 @@ Existing browser DevTools expose *computed styles*, but they lack:
 | Framework-Agnostic Core | Built on browser stacking behavior, not framework-specific assumptions |
 
 
+## 3D Pan Visualization
+
+The 3D pan view represents the browser’s stacking model in spatial form.
+
+- The **X-axis** represents stacking depth (z-order)
+- Each **stacking context** is rendered as a separate plane
+- Elements within a context appear as nodes positioned relative to their parent
+- Panning along the X-axis reveals overlap and render order visually
+
+Interactions:
+- Hovering an element highlights it in the live page
+- Clicking focuses its stacking context and source mapping
+- Context boundaries make implicit stacking rules explicit
+
+This visualization explains *why* elements overlap the way they do, not just *that* they overlap.
+
+
 ## 2. Core Idea
 
 **Z-Lens treats z-index as a system, not a single CSS property.**
