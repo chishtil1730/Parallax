@@ -94,6 +94,32 @@ This visualization explains *why* elements overlap the way they do, not just *th
 | **Dynamic Z-Index Tracking** | Track z-indices set via JS state, animations, and scroll positions | Future |
 | **Media Query Awareness** | Handle different z-index values across breakpoints | Future |
 
+
+---
+
+## 🚀 Advanced Spatial Features
+
+### 💻 CLI-Injected HUD (The "Sidecar")
+* **Dev Bubble**: Launched via `planarity`, the tool lives as a floating, expandable bubble over your live application.
+* **Bi-Directional Sync**: Uses WebSockets to connect the browser HUD to your IDE; dragging a layer in 3D updates your source code (Tailwind, CSS-in-JS, or CSS) in real-time.
+* **Git-Style Staging**: Review "Spatial Diffs" in a staging area before committing z-index changes to your codebase.
+
+### 🧊 Dual-Mode Visualization
+* **2D Isometric Mode**: Uses CSS3 transforms to render the page as a stack of "tilted cards" for quick logical debugging.
+* **3D WebGL Mode**: A full-scale Three.js environment that "explodes" the DOM into a Cartesian space, perfect for deep architectural audits.
+
+
+
+### 🛠 CLI Reference
+| Command | Action |
+|:---|:---|
+| \`planarity\` | Starts the dev-server and injects the HUD bubble. |
+| \`planarity audit\` | Scans for "z-index smells" like arbitrary 9999s and broken contexts. |
+| \`planarity stage\` | Displays a diff of pending spatial changes. |
+| \`planarity push\` | Hard-writes staged changes back to the source files. |
+
+EOF
+
 ## 2. Core Idea
 
 **Z-Lens treats z-index as a system, not a single CSS property.**
