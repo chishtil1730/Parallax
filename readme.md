@@ -22,6 +22,20 @@ Existing browser DevTools expose *computed styles*, but they lack:
 
 ---
 
+## Key Features
+
+| Feature | Description |
+|-------|-------------|
+| Runtime Stacking Inspector | Detects actual stacking contexts and computed z-index values directly from the browser |
+| 3D Layer Visualization | Displays stacking contexts and elements along an X-axis to reveal depth and overlap |
+| Cross-Framework Support | Works across HTML, CSS, React, Next.js, Tailwind, and CSS-in-JS via resolvers |
+| Source Mapping | Maps rendered elements back to their exact source files and definitions |
+| Editable Z-Index Table | Centralized table to view and modify all z-index definitions safely |
+| Git-Style Staging | Stage, review, and commit z-index changes with diffs |
+| Non-Destructive Edits | Changes are applied via patches, not blind file mutation |
+| Framework-Agnostic Core | Built on browser stacking behavior, not framework-specific assumptions |
+
+
 ## 2. Core Idea
 
 **Z-Lens treats z-index as a system, not a single CSS property.**
