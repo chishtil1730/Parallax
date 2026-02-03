@@ -1,50 +1,74 @@
-# Git Link: The Local-to-Remote Bridge
+# Git Link — The Local-to-Remote Bridge
 
-**Git Link** is a high-performance CLI tool designed to unify the local development experience with GitHub's remote ecosystem. By providing a rich Terminal User Interface (TUI), it eliminates the friction of switching between the IDE and the browser to verify changes, track PRs, and monitor CI/CD status.
+**Git Link** is a fast, terminal-native CLI that connects your local Git workflow directly to GitHub’s remote state.
+It brings push verification, pull-request context, and CI/CD visibility **into the terminal**, so you don’t have to break focus by jumping between your IDE and a browser.
+
+If you live in the terminal, Git Link makes sure the *entire* Git experience lives there too.
 
 ---
 
-## 🧠 The Ideology: "Stay in the Flow"
-Modern development is plagued by **Context Switching**. Every time a developer opens a browser to check if a push was successful or to read a PR comment, they lose focus. 
+## 🧠 Ideology: *Stay in the Flow*
 
-* **Terminal-First:** If the work happens in the terminal, the verification should too.
-* **Visual Confidence:** Commands like `git add` should provide immediate, meaningful feedback rather than silence.
-* **Proactive Guardrails:** The tool should prevent errors (like pushing to a branch with conflicts) before they happen, not after the remote rejects them.
+Modern development is plagued by **context switching**. Every time you alt-tab to a browser just to confirm a push, read a PR comment, or check CI status, you lose momentum.
+
+Git Link is built around three simple beliefs:
+
+* **Terminal-First**
+  If the work happens in the terminal, verification and feedback should happen there as well.
+
+* **Visual Confidence**
+  Commands like `git add` or `git push` shouldn’t fail silently. Developers should *see* what just happened and why it matters.
+
+* **Proactive Guardrails**
+  It’s better to prevent bad pushes (conflicts, outdated branches, failing CI) than to discover them after the remote rejects your work.
 
 ---
 
 ## 🛠️ Tech Stack
-To ensure the tool is fast, lightweight, and "IDE-Agile," we utilize a compiled, dependency-free stack:
 
-* **Language:** **Go (Golang)** or **Rust** — For high-speed execution and single-binary distribution.
-* **TUI Engine:** **Bubble Tea (Go)** or **Ratatui (Rust)** — To create "game-like" interactive terminal interfaces.
-* **Data Source:** **GitHub REST API / GraphQL** — For real-time sync with remote repositories.
-* **Highlighting:** **Chroma (Go)** or **Syntect (Rust)** — To render code with full syntax highlighting in the terminal.
+Git Link is designed to be fast, portable, and IDE-agnostic. It ships as a single binary with zero runtime dependencies.
 
----
-
-## 📋 Core Performance Features
-
-| Feature | Description | Visual Feedback |
-| :--- | :--- | :--- |
-| **Visual Command Feedback** | Replaces blank terminal responses with summaries when running `git add .` | Progress bars and file count summaries. |
-| **Side-by-Side Diff** | A dual-pane TUI showing "Before" and "After" code changes horizontally. | Syntax highlighting and intra-line change detection. |
-| **Remote Verification** | Automatically checks the GitHub API to confirm a push has reached the server. | "Verified" checkmark once the commit hash is live. |
-| **Integrated PR Comments** | Displays GitHub Pull Request discussions directly within the terminal diff. | "Sticky note" style boxes under relevant code lines. |
-| **Pre-Push Safety Guard** | A "Traffic Light" system that checks for conflicts or CI/CD failures. | 🟢 Safe to push \| 🟡 Behind remote \| 🔴 Conflict/Build Fail. |
-| **IDE-Agile** | Operates as a standalone binary compatible with any terminal. | Works in VS Code, JetBrains, or native shells. |
+* **Language:** Go or Rust — for instant startup and predictable performance
+* **TUI Framework:** Bubble Tea (Go) or Ratatui (Rust) — to build rich, interactive terminal interfaces
+* **Git Integration:** Native Git plumbing commands for accurate local state
+* **Remote Sync:** GitHub REST API and GraphQL API
+* **Syntax Highlighting:** Chroma (Go) or Syntect (Rust)
 
 ---
 
-## 📐 System Logic
+## 📋 Core Features
 
+| Feature                     | Description                                                                       | Feedback                                      |
+| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------- |
+| **Visual Command Feedback** | Enhances commands like `git add` with clear summaries instead of silent execution | Progress bars, staged file counts             |
+| **Side-by-Side Diff View**  | Dual-pane horizontal diffs for reviewing changes in context                       | Syntax highlighting, intra-line diffs         |
+| **Push Verification**       | Confirms that pushed commits are visible on GitHub                                | Verified checkmark when remote sync completes |
+| **Inline PR Comments**      | Displays pull-request review comments directly inside the diff view               | Sticky-note style annotations                 |
+| **Pre-Push Safety Guard**   | Traffic-light system that checks branch status and CI health                      | 🟢 Safe · 🟡 Behind · 🔴 Blocked              |
+| **IDE-Agile**               | Runs in any terminal, independent of editor or IDE                                | Works in VS Code, JetBrains, Neovim, tmux     |
 
+---
 
-The tool acts as an orchestration layer. It monitors your local `.git` directory while simultaneously polling the GitHub API to ensure your local state and remote state are perfectly aligned.
+## 📐 How It Works
+
+Git Link acts as an orchestration layer between your local repository and GitHub.
+
+* It continuously reads state from your local `.git` directory
+* In parallel, it queries GitHub for remote commits, PR metadata, and CI/CD status
+* The TUI reconciles both views into a single, consistent source of truth
+
+The result: you always know whether your local state *actually* matches what exists on the remote.
 
 ---
 
 ## 🚀 Future Roadmap
-* **One-Click Fix:** Apply suggested changes from PR comments directly to local files.
-* **Action Logs:** Stream GitHub Action logs directly into the TUI for real-time debugging.
-* **Multi-Repo Dashboard:** Monitor multiple local repositories from a single unified view.
+
+* **One-Click Fixes** — Apply PR review suggestions directly to local files
+* **CI Log Streaming** — View GitHub Actions logs live inside the TUI
+* **Multi-Repo Dashboard** — Monitor multiple repositories from a single interface
+* **Provider Expansion** — GitLab and Bitbucket support through modular adapters
+
+---
+
+Git Link is not trying to replace Git or GitHub.
+It exists to **close the gap between them** — without ever leaving the terminal.
