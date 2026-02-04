@@ -70,15 +70,6 @@ Input is intercepted *before* reaching the shell, allowing Git Link to provide:
 The TUI continuously reconciles local Git state with GitHub’s remote state, giving you a single, reliable source of truth — without leaving the terminal.
 
 ---
-
-## 🚀 Future Roadmap
-
-* **One‑Click Fixes** — Apply PR review suggestions directly to local files
-* **CI Log Streaming** — View GitHub Actions logs live inside the TUI
-* **Multi‑Repo Dashboard** — Monitor multiple repositories from a single interface
-* **Provider Expansion** — GitLab and Bitbucket support through modular adapters
-
----
 ## How to Approach
 
 1. Complete OAuth or OAuth2
@@ -100,5 +91,13 @@ The TUI continuously reconciles local Git state with GitHub’s remote state, gi
 - Handling OAuth via asynchronous systems.
 ---
 
+
+## 🚀 Future Roadmap
+
+* **One‑Click Fixes** — Apply PR review suggestions directly to local files
+* **CI Log Streaming** — View GitHub Actions logs live inside the TUI
+* **Multi‑Repo Dashboard** — Monitor multiple repositories from a single interface
+* **Provider Expansion** — GitLab and Bitbucket support through modular adapters
+---
 Git Link is not trying to replace Git or GitHub.
 It exists to **close the gap between them** — without ever leaving the terminal.
