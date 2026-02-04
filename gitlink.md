@@ -78,6 +78,19 @@ The TUI continuously reconciles local Git state with GitHub’s remote state, gi
 * **Provider Expansion** — GitLab and Bitbucket support through modular adapters
 
 ---
+## How to Approach
+
+1. Complete OAuth or OAuth2
+2. Write custom APIs to get particular info.
+
+  - Rest API's for auth
+  - GraphQL for remote calls
+3. Fetch data from custom written APIs
+4. Finish with rust implementation
+5. Start TUI development
+6. Publish as a CLI
+
+---
 
 Git Link is not trying to replace Git or GitHub.
 It exists to **close the gap between them** — without ever leaving the terminal.
