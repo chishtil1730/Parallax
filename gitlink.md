@@ -39,10 +39,11 @@ Git Link is designed to be fast, portable, and IDE‑agnostic. It ships as a sin
 ## 📋 Core Features
 
 | Feature                            | Description                                                                         | Feedback                                      |
-| ---------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------- |
+|------------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------|
 | **Embedded Live Terminal**         | Full interactive shell inside the TUI; commands run in a real PTY-backed shell      | Feels identical to a normal IDE terminal      |
 | **Context-Aware Git Auto-Suggest** | Smart inline suggestions while typing Git commands, based on repo state and history | Ghost-text suggestions, Tab/→ to accept       |
 | **Visual Command Feedback**        | Enhances commands like `git add` with clear summaries instead of silent execution   | Progress bars, staged file counts             |
+| **Graphic TUI for logs**           | Uses graphical TUI to actually show graphs or logs as --oneline in a better way     | Clean but good looking TUI                    |
 | **Side-by-Side Diff View**         | Dual-pane horizontal diffs for reviewing changes in context                         | Syntax highlighting, intra-line diffs         |
 | **Push Verification**              | Confirms that pushed commits are visible on GitHub                                  | Verified checkmark when remote sync completes |
 | **Inline PR Comments**             | Displays pull-request review comments directly inside the diff view                 | Sticky-note style annotations                 |
