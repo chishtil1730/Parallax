@@ -92,6 +92,13 @@ The TUI continuously reconciles local Git state with GitHub’s remote state, gi
 6. Publish as a CLI
 
 ---
+## Stuff I am gonna Learn
+
+- Rust and TUI designing applications
+- Async rust and advanced rust codes
+- Writing and implementing custom APIs.
+- Handling OAuth via asynchronous systems.
+---
 
 Git Link is not trying to replace Git or GitHub.
 It exists to **close the gap between them** — without ever leaving the terminal.
