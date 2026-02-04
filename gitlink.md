@@ -6,6 +6,10 @@ It brings push verification, pull‑request context, and CI/CD visibility **into
 If you live in the terminal, Git Link makes sure the *entire* Git experience lives there too.
 
 ---
+## Current ongoing progress
+* Learning basic syntax (✔)
+* Learning functions, conditional statements(✔)
+---
 
 ## 🧠 Ideology: *Stay in the Flow*
 
@@ -84,16 +88,13 @@ The TUI continuously reconciles local Git state with GitHub’s remote state, gi
 
 ---
 ## Stuff I am gonna Learn
-
 - Rust and TUI designing applications
 - Async rust and advanced rust codes
 - Writing and implementing custom APIs.
 - Handling OAuth via asynchronous systems.
 ---
 
-
 ## 🚀 Future Roadmap
-
 * **One‑Click Fixes** — Apply PR review suggestions directly to local files
 * **CI Log Streaming** — View GitHub Actions logs live inside the TUI
 * **Multi‑Repo Dashboard** — Monitor multiple repositories from a single interface
