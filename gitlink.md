@@ -44,6 +44,7 @@ Git Link is designed to be fast, portable, and IDE‑agnostic. It ships as a sin
 
 | Feature                            | Description                                                                         | Feedback                                      |
 |------------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------|
+| **AI suggested commit message**    | Ask AI to suggest you commit messages based on what you changed in you r files      | Easy un identical commit messages             |
 | **Embedded Live Terminal**         | Full interactive shell inside the TUI; commands run in a real PTY-backed shell      | Feels identical to a normal IDE terminal      |
 | **Context-Aware Git Auto-Suggest** | Smart inline suggestions while typing Git commands, based on repo state and history | Ghost-text suggestions, Tab/→ to accept       |
 | **Visual Command Feedback**        | Enhances commands like `git add` with clear summaries instead of silent execution   | Progress bars, staged file counts             |
