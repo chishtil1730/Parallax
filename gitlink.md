@@ -41,23 +41,26 @@ Git Link is designed to be fast, portable, and IDE‑agnostic. It ships as a sin
 ---
 
 ## 📋 Core Features
-| Feature                                     | Description                                                                                        | Feedback                                      |
-|---------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| **Deterministic Commit Message Suggestion** | Generate commit messages locally by analyzing diffs, symbols, and code structure (no AI, no cloud) | Clear, consistent, intent-focused messages    |
-| **Intent-Based Polyrepo Hub**               | Coordinate multiple independent repositories under a single logical “commit intent”                | One logical commit across many repos          |
-| **Coordinated Multi-Repo Commits**          | Automatically create individual Git commits per repo from a single hub-triggered commit action     | No manual multi-commit overhead               |
-| **Symbol-Level Change Detection**           | Detect modified functions/methods, line ranges, and files using parsing and lexical analysis       | Precise, code-aware change summaries          |
-| **Intent ID Linking**                       | Tag all per-repo commits with a shared intent identifier for traceability                          | Easy cross-repo history reconstruction        |
-| **Practical Atomic Commit Orchestration**   | Validate all repos before commit; commit all or none to avoid partial intent commits               | Safe, predictable multi-repo commits          |
-| **Embedded Live Terminal**                  | Full interactive shell inside the TUI; commands run in a real PTY-backed shell                     | Feels identical to a normal IDE terminal      |
-| **Context-Aware Git Auto-Suggest**          | Smart inline suggestions while typing Git commands, based on repo state and history                | Ghost-text suggestions, Tab/→ to accept       |
-| **Visual Command Feedback**                 | Enhances commands like `git add` with clear summaries instead of silent execution                  | Progress bars, staged file counts             |
-| **Graphic TUI for Logs**                    | Render commit history and logs using a structured, visual TUI instead of plain `--oneline` output  | Clean, readable, information-dense UI         |
-| **Side-by-Side Diff View**                  | Dual-pane horizontal diffs for reviewing changes in context                                        | Syntax highlighting, intra-line diffs         |
-| **Push Verification**                       | Confirms that pushed commits are visible on GitHub                                                 | Verified checkmark when remote sync completes |
-| **Inline PR Comments**                      | Displays pull-request review comments directly inside the diff view                                | Sticky-note style annotations                 |
-| **Pre-Push Safety Guard**                   | Traffic-light system that checks branch drift, conflicts, and CI health                            | 🟢 Safe · 🟡 Behind · 🔴 Blocked              |
-| **IDE-Agile**                               | Runs as a standalone terminal app, independent of editor or IDE                                    | Works in VS Code, JetBrains, Neovim, tmux     |
+
+| Feature                                     | Description                                                                                              | Feedback                                               |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| **Deterministic Commit Message Suggestion** | Generate commit messages locally by analyzing diffs, symbols, and code structure (no AI, no cloud)       | Clear, consistent, intent-focused messages             |
+| **Intent-Based Polyrepo Hub**               | Coordinate multiple independent repositories under a single logical “commit intent”                      | One logical commit across many repos                   |
+| **Coordinated Multi-Repo Commits**          | Automatically create individual Git commits per repo from a single hub-triggered commit action           | No manual multi-commit overhead                        |
+| **Symbol-Level Change Detection**           | Detect modified functions/methods, line ranges, and files using parsing and lexical analysis             | Precise, code-aware change summaries                   |
+| **Intent ID Linking**                       | Tag all per-repo commits with a shared intent identifier for traceability                                | Easy cross-repo history reconstruction                 |
+| **Practical Atomic Commit Orchestration**   | Validate all repos before commit; commit all or none to avoid partial intent commits                     | Safe, predictable multi-repo commits                   |
+| **Embedded Live Terminal**                  | Full interactive shell inside the TUI; commands run in a real PTY-backed shell                           | Feels identical to a normal IDE terminal               |
+| **Git Error Diagnosis & Contextual Hints**  | Capture failed Git commands, classify errors, enrich them with repo/remote state, and suggest next steps | Clear explanation of failures with actionable guidance |
+| **Context-Aware Git Auto-Suggest**          | Smart inline suggestions while typing Git commands, based on repo state and history                      | Ghost-text suggestions, Tab/→ to accept                |
+| **Visual Command Feedback**                 | Enhances commands like `git add` with clear summaries instead of silent execution                        | Progress bars, staged file counts                      |
+| **Graphic TUI for Logs**                    | Render commit history and logs using a structured, visual TUI instead of plain `--oneline` output        | Clean, readable, information-dense UI                  |
+| **Side-by-Side Diff View**                  | Dual-pane horizontal diffs for reviewing changes in context                                              | Syntax highlighting, intra-line diffs                  |
+| **Push Verification**                       | Confirms that pushed commits are visible on GitHub                                                       | Verified checkmark when remote sync completes          |
+| **Inline PR Comments**                      | Displays pull-request review comments directly inside the diff view                                      | Sticky-note style annotations                          |
+| **Pre-Push Safety Guard**                   | Traffic-light system that checks branch drift, conflicts, and CI health                                  | 🟢 Safe · 🟡 Behind · 🔴 Blocked                       |
+| **IDE-Agile**                               | Runs as a standalone terminal app, independent of editor or IDE                                          | Works in VS Code, JetBrains, Neovim, tmux              |
+
 
 ---
 
