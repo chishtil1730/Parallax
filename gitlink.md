@@ -41,21 +41,180 @@ Git Link is designed to be fast, portable, and IDE‑agnostic. It ships as a sin
 ---
 
 ## 📋 Core Features
-
-| Feature                            | Description                                                                         | Feedback                                      |
-|------------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------|
-| **AI suggested commit message**    | Ask AI to suggest you commit messages based on what you changed in you r files      | Easy un identical commit messages             |
-| **Embedded Live Terminal**         | Full interactive shell inside the TUI; commands run in a real PTY-backed shell      | Feels identical to a normal IDE terminal      |
-| **Context-Aware Git Auto-Suggest** | Smart inline suggestions while typing Git commands, based on repo state and history | Ghost-text suggestions, Tab/→ to accept       |
-| **Visual Command Feedback**        | Enhances commands like `git add` with clear summaries instead of silent execution   | Progress bars, staged file counts             |
-| **Graphic TUI for logs**           | Uses graphical TUI to actually show graphs or logs as --oneline in a better way     | Clean but good looking TUI                    |
-| **Side-by-Side Diff View**         | Dual-pane horizontal diffs for reviewing changes in context                         | Syntax highlighting, intra-line diffs         |
-| **Push Verification**              | Confirms that pushed commits are visible on GitHub                                  | Verified checkmark when remote sync completes |
-| **Inline PR Comments**             | Displays pull-request review comments directly inside the diff view                 | Sticky-note style annotations                 |
-| **Pre-Push Safety Guard**          | Traffic-light system that checks branch status and CI health                        | 🟢 Safe · 🟡 Behind · 🔴 Blocked              |
-| **IDE-Agile**                      | Runs as a standalone terminal app, independent of editor or IDE                     | Works in VS Code, JetBrains, Neovim, tmux     |
+| Feature                                     | Description                                                                                        | Feedback                                      |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| **Deterministic Commit Message Suggestion** | Generate commit messages locally by analyzing diffs, symbols, and code structure (no AI, no cloud) | Clear, consistent, intent-focused messages    |
+| **Intent-Based Polyrepo Hub**               | Coordinate multiple independent repositories under a single logical “commit intent”                | One logical commit across many repos          |
+| **Coordinated Multi-Repo Commits**          | Automatically create individual Git commits per repo from a single hub-triggered commit action     | No manual multi-commit overhead               |
+| **Symbol-Level Change Detection**           | Detect modified functions/methods, line ranges, and files using parsing and lexical analysis       | Precise, code-aware change summaries          |
+| **Intent ID Linking**                       | Tag all per-repo commits with a shared intent identifier for traceability                          | Easy cross-repo history reconstruction        |
+| **Practical Atomic Commit Orchestration**   | Validate all repos before commit; commit all or none to avoid partial intent commits               | Safe, predictable multi-repo commits          |
+| **Embedded Live Terminal**                  | Full interactive shell inside the TUI; commands run in a real PTY-backed shell                     | Feels identical to a normal IDE terminal      |
+| **Context-Aware Git Auto-Suggest**          | Smart inline suggestions while typing Git commands, based on repo state and history                | Ghost-text suggestions, Tab/→ to accept       |
+| **Visual Command Feedback**                 | Enhances commands like `git add` with clear summaries instead of silent execution                  | Progress bars, staged file counts             |
+| **Graphic TUI for Logs**                    | Render commit history and logs using a structured, visual TUI instead of plain `--oneline` output  | Clean, readable, information-dense UI         |
+| **Side-by-Side Diff View**                  | Dual-pane horizontal diffs for reviewing changes in context                                        | Syntax highlighting, intra-line diffs         |
+| **Push Verification**                       | Confirms that pushed commits are visible on GitHub                                                 | Verified checkmark when remote sync completes |
+| **Inline PR Comments**                      | Displays pull-request review comments directly inside the diff view                                | Sticky-note style annotations                 |
+| **Pre-Push Safety Guard**                   | Traffic-light system that checks branch drift, conflicts, and CI health                            | 🟢 Safe · 🟡 Behind · 🔴 Blocked              |
+| **IDE-Agile**                               | Runs as a standalone terminal app, independent of editor or IDE                                    | Works in VS Code, JetBrains, Neovim, tmux     |
 
 ---
+
+## 🧩 Intent-Based Polyrepo Hub (New Feature)
+
+This section introduces **intent-based coordination for polyrepos**, designed to eliminate the commit friction that arises when multiple independent repositories are logically interlinked.
+
+This feature **does not convert polyrepos into a monorepo** and **does not modify Git internals**. Instead, it introduces a lightweight orchestration layer that preserves repository independence while enabling monorepo-like commit ergonomics.
+
+---
+
+### 🎯 Problem Being Solved
+
+In a polyrepo setup, related code often spans multiple repositories (for example, shared interfaces, contracts, or tightly coupled services). A single logical change may require:
+
+* Updating code in multiple repositories
+* Creating separate commits per repository
+* Manually keeping commit messages consistent
+* Remembering that multiple commits represent *one intent*
+
+This leads to fragmented history and unnecessary cognitive overhead.
+
+---
+
+### 🧠 Core Idea: Commit by Intent, Not by Repository
+
+Git Link introduces the concept of a **logical commit intent**.
+
+A single user action:
+
+```bash
+gitlink commit -m "Update authentication flow"
+```
+
+results in:
+
+* One **logical intent** tracked by Git Link
+* Multiple **physical Git commits**, one per affected repository
+* All commits linked together via a shared intent identifier
+
+Each repository remains fully independent, with its own history and remote.
+
+---
+
+### 🗂️ Hub Configuration (Local Only)
+
+A lightweight hub configuration defines which repositories are coordinated:
+
+```yaml
+hub:
+  repos:
+    service-a:
+      path: ./service-a
+    service-b:
+      path: ./service-b
+```
+
+The hub:
+
+* Contains no source code
+* Performs no Git operations itself
+* Acts only as an orchestration and metadata layer
+
+---
+
+### 🔗 Intent-to-Commit Mapping
+
+When an intent-based commit is executed:
+
+1. Git Link scans all registered repositories
+2. Detects which repositories contain changes
+3. Creates a normal Git commit in each changed repository
+4. Annotates each commit with a shared intent identifier
+
+Example commit footer:
+
+```
+[gitlink-intent: INTENT-2026-02-04-7F3A]
+```
+
+This enables:
+
+* Cross-repo traceability
+* Logical history reconstruction
+* Grouped status and CI tracking
+
+---
+
+### 🧠 Deterministic Code-Aware Commit Summaries (No AI)
+
+Git Link generates commit summaries **locally and deterministically**, without using AI or external services.
+
+The process:
+
+1. Use `git diff` as the source of truth
+2. Parse only the changed files
+3. Perform lightweight lexical / AST analysis
+4. Map changed lines to symbols (functions, methods, structs)
+
+This allows Git Link to produce structured summaries such as:
+
+```
+auth.rs: modified authenticate() (lines 12–18)
+user.rs: updated User::validate()
+```
+
+These summaries are appended to commit messages automatically and can be edited by the user before finalizing.
+
+---
+
+### 🧪 Language-Aware, Lightweight Analysis
+
+* Parsing is limited to **changed files only**
+* No full-project compilation or indexing
+* No background analysis loops
+* No network calls
+
+The analysis layer is comparable to compiler front-end tooling and remains suitable for small and resource-constrained systems.
+
+If parsing fails for a file, Git Link gracefully falls back to file-level summaries.
+
+---
+
+### 🧯 Safety and Consistency Guarantees
+
+Before committing, Git Link validates:
+
+* All participating repositories are in a clean state
+* All required linked changes are present
+* No partial intent commits are created
+
+If any repository fails validation, **no commits are created**, preserving practical atomicity.
+
+---
+
+### 📌 What This Feature Is Not
+
+* ❌ Not a monorepo
+* ❌ Not Git submodules
+* ❌ Not a Git fork or wrapper
+* ❌ Not AI-driven or cloud-dependent
+
+This is a **local-first orchestration layer** that enhances Git without altering its core behavior.
+
+---
+
+### 🧭 Why This Belongs in Git Link
+
+This feature aligns directly with Git Link’s core ideology:
+
+* Reduce context switching
+* Preserve developer intent
+* Make Git workflows reflect real-world change boundaries
+
+Git Link does not replace Git — it teaches Git about *why* a change exists.
+
+
 
 ## 📐 How It Works
 
