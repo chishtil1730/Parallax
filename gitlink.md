@@ -105,6 +105,39 @@ Each repository remains fully independent, with its own history and remote.
 
 ---
 
+## Extra Safety Nets:
+
+## 🔒 Cached Remote API Calls
+
+Git Link caches GitHub API responses locally to improve performance, reduce network usage, and avoid rate limits.
+
+- Cache entries are **time-bound** and **scope-aware**
+- Volatile data (CI status, push verification) uses short TTLs
+- Cache is **explicitly invalidated** on relevant Git events (push, fetch, auth change)
+- No authentication data or errors are cached
+
+Users retain full control:
+
+```bash
+gitlink refresh
+gitlink cache clear
+```
+
+
+## 🛡️ Sensitive Information Detection (Opt-In)
+
+- Git Link can optionally scan staged changes for potentially sensitive information before commit or push.
+
+- Uses deterministic, local analysis (patterns + entropy)
+
+- No AI, no cloud calls, no telemetry
+
+- Detected values are never stored, logged, or transmitted
+
+#### *_!Acts strictly as an advisory, not a blocker_*
+
+---
+
 ### 🗂️ Hub Configuration (Local Only)
 
 A lightweight hub configuration defines which repositories are coordinated:
