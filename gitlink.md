@@ -134,6 +134,13 @@ gitlink cache clear
 
 - Detected values are never stored, logged, or transmitted
 
+Example warning:
+
+#### ⚠️ Possible sensitive value detected
+File: config.js<br>
+Line: 42<br>
+Type: High-entropy string (possible API key)
+
 #### *_!Acts strictly as an advisory, not a blocker_*
 
 ---
